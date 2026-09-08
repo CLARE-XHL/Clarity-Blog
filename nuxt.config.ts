@@ -40,9 +40,9 @@ export default defineNuxtConfig({
 				{ rel: 'stylesheet', href: 'https://fonts.bytedance.com/dfd/api/v1/css?family=DOUYINSANSBOLD-GB&display=swap' },
 			],
 			script: [
-				// 👇 谷歌分析 gtag.js（手动添加，不依赖模块）
+				// 👇 谷歌分析（gtag.js）- 添加于 2026-09-09
 				{
-					src: 'https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXX',
+					src: 'https://www.googletagmanager.com/gtag/js?id=G-CDSS4HY61X',
 					async: true,
 				},
 				{
@@ -50,11 +50,11 @@ export default defineNuxtConfig({
 						window.dataLayer = window.dataLayer || [];
 						function gtag(){dataLayer.push(arguments);}
 						gtag('js', new Date());
-						gtag('config', 'G-XXXXXXXX');
+						gtag('config', 'G-CDSS4HY61X');
 					`,
 					type: 'text/javascript',
 				},
-				// 保留原有脚本（来自 blogConfig.scripts）
+				// 原有博客脚本（如 blogConfig.scripts 有内容，它会合并进来）
 				...blogConfig.scripts,
 			],
 			templateParams: {
@@ -170,7 +170,7 @@ export default defineNuxtConfig({
 		'@vueuse/nuxt',
 		'nuxt-llms',
 		'unplugin-yaml/nuxt',
-		// 👇 注意：移除了 @nuxtjs/gtag，改用手动 script 方式
+		// 👇 移除了 @nuxtjs/gtag，改用手动 script 方式
 	],
 
 	colorMode: {
@@ -207,8 +207,6 @@ export default defineNuxtConfig({
 			namedLayoutSlots: true,
 		},
 	},
-
-	// 👇 注意：移除了 gtag 配置块，因为现在用 script 方式
 
 	hooks: {
 		'ready': () => {
