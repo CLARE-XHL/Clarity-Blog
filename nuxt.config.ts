@@ -39,11 +39,28 @@ export default defineNuxtConfig({
 				// 抖音美好体 "DOUYINSANSBOLD-GB"
 				{ rel: 'stylesheet', href: 'https://fonts.bytedance.com/dfd/api/v1/css?family=DOUYINSANSBOLD-GB&display=swap' },
 			],
+			script: [
+				// 👇 谷歌分析 gtag.js（手动添加，不依赖模块）
+				{
+					src: 'https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXX',
+					async: true,
+				},
+				{
+					children: `
+						window.dataLayer = window.dataLayer || [];
+						function gtag(){dataLayer.push(arguments);}
+						gtag('js', new Date());
+						gtag('config', 'G-XXXXXXXX');
+					`,
+					type: 'text/javascript',
+				},
+				// 保留原有脚本（来自 blogConfig.scripts）
+				...blogConfig.scripts,
+			],
 			templateParams: {
 				separator: '|',
 			},
 			titleTemplate: `%s %separator ${blogConfig.title}`,
-			script: blogConfig.scripts,
 		},
 		rootAttrs: {
 			id: 'blog-root',
@@ -153,8 +170,7 @@ export default defineNuxtConfig({
 		'@vueuse/nuxt',
 		'nuxt-llms',
 		'unplugin-yaml/nuxt',
-		// 👇 谷歌分析模块（添加于 2026-09-09）
-		'@nuxtjs/gtag',
+		// 👇 注意：移除了 @nuxtjs/gtag，改用手动 script 方式
 	],
 
 	colorMode: {
@@ -192,10 +208,7 @@ export default defineNuxtConfig({
 		},
 	},
 
-	// 👇 谷歌分析 ID 配置（添加于 2026-09-09）
-	gtag: {
-		id: 'G-XXXXXXXX', // 替换为你的实际测量 ID
-	},
+	// 👇 注意：移除了 gtag 配置块，因为现在用 script 方式
 
 	hooks: {
 		'ready': () => {
