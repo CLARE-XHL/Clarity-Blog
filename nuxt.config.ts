@@ -23,6 +23,8 @@ export default defineNuxtConfig({
 				// 此处为元数据的生成器标识，不建议修改
 				{ 'name': 'generator', 'content': `${pascalCase(packageJson.name)} ${packageJson.version}`, 'data-github-repo': packageJson.homepage },
 				{ name: 'mobile-web-app-capable', content: 'yes' },
+				// 👇 必应搜索验证（添加于 2026-09-09）
+				{ name: 'msvalidate.01', content: 'CAADD4A3CEAEAD7C420E86EC70C7781E' },
 			],
 			link: [
 				{ rel: 'icon', href: blogConfig.favicon },
@@ -151,6 +153,8 @@ export default defineNuxtConfig({
 		'@vueuse/nuxt',
 		'nuxt-llms',
 		'unplugin-yaml/nuxt',
+		// 👇 谷歌分析模块（添加于 2026-09-09）
+		'@nuxtjs/gtag',
 	],
 
 	colorMode: {
@@ -186,6 +190,11 @@ export default defineNuxtConfig({
 		features: {
 			namedLayoutSlots: true,
 		},
+	},
+
+	// 👇 谷歌分析 ID 配置（添加于 2026-09-09）
+	gtag: {
+		id: 'G-XXXXXXXX', // 替换为你的实际测量 ID
 	},
 
 	hooks: {
