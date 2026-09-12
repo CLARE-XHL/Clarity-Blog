@@ -1,7 +1,7 @@
 <script setup lang="ts">
 useSeoMeta({
 	title: '隐私政策',
-	description: 'CrCLARE 工作室隐私政策',
+	description: 'CrCLARE 工作室隐私政策声明',
 })
 </script>
 
@@ -11,8 +11,8 @@ useSeoMeta({
 </div>
 
 <div class="article privacy-container">
-	<h1>📝 CrCLARE 工作室 - 隐私政策</h1>
-	<p>欢迎访问 CrCLARE 工作室站点。我们致力于保护您的隐私，并尽可能保持数据处理透明。以下是具体内容：</p>
+	<h1 class="privacy-title">📝 CrCLARE 工作室 - 隐私政策声明</h1>
+	<p>欢迎访问 CrCLARE 工作室站点。我们致力于保护您的隐私，并尽可能保持数据处理透明。以下是我们的具体声明：</p>
 
 	<h2>1. 开源与可审计性</h2>
 	<p>除 Pass 服务外，本工作室所有站点均在 GitHub 仓库公开，代码随时可供社区审计。我们不隐藏任何数据处理逻辑，您可以自行审查源码以验证本声明的真实性。</p>
@@ -64,17 +64,51 @@ useSeoMeta({
 
 <style lang="scss" scoped>
 .privacy-container {
-	margin: 1rem;
 	max-width: 48rem;
-	margin-inline: auto;
-	
+	margin: 0 auto;
+	padding: 1.5rem 1.25rem; /* 移动端横向边距增加到 1.25rem */
+	line-height: 1.7;
+
+	@media (min-width: 768px) {
+		padding: 2.5rem 2rem;
+	}
+
+	:deep(h1.privacy-title) {
+		font-size: 1.5rem;
+		line-height: 1.3;
+		margin-bottom: 1rem;
+		word-break: break-word;
+
+		@media (min-width: 768px) {
+			font-size: 2rem;
+		}
+	}
+
+	:deep(h2) {
+		font-size: 1.2rem;
+		margin-top: 2rem;
+		margin-bottom: 0.75rem;
+
+		@media (min-width: 768px) {
+			font-size: 1.4rem;
+		}
+	}
+
+	:deep(p) {
+		margin-bottom: 0.75rem;
+	}
+
 	:deep(ul) {
-		padding-left: 1.5rem;
+		padding-left: 1.25rem;
 		margin: 0.5rem 0;
 	}
-	
+
 	:deep(li) {
-		margin: 0.25rem 0;
+		margin-bottom: 0.4rem;
+	}
+	
+	:deep(a) {
+		word-break: break-all; /* 防止长链接撑破移动端排版 */
 	}
 }
 </style>
