@@ -19,7 +19,7 @@ useSeoMeta({
 
 	<h2>2. 数据收集与使用</h2>
 	<p>本工作室站点（Pass 除外）均为纯静态站点。我们不会主动记录或收集任何您的个人身份信息。</p>
-	<p>唯一的例外是：当您使用 Wookit 评论系统时，您主动输入的邮箱、昵称、网站地址，以及系统自动获取的 IP 地址，会被存储于 MongoDB 数据库中。这些数据仅用于展示您的评论及防止垃圾留言，具体数据安全请参考 <a href="https://www.mongodb.com/legal/privacy/privacy-policy" target="_blank" rel="noopener">MongoDB 隐私政策</a>。</p>
+	<p>唯一的例外是：当您使用 Twikoo 评论系统时，您主动输入的邮箱、昵称、网站地址，以及发送评论时系统自动获取的 IP 地址，会被存储于 MongoDB 数据库中。这些数据仅用于展示您的评论及防止垃圾留言，具体数据安全请参考 <a href="https://www.mongodb.com/legal/privacy/privacy-policy" target="_blank" rel="noopener">MongoDB 隐私政策</a>。</p>
 	<p><strong>特别声明：对于使用 Chronos Seal 项目的用户，您的加密主种子（Seed）仅在本地生成，绝不会上传至我们的任何服务器，我们无权也无法获取您的加密密钥。</strong></p>
 
 	<h2>3. 基础设施与托管服务</h2>
